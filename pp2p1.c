@@ -15,7 +15,7 @@ int main(){
 // printf("%d", oct);
 
 
-int i,k,p;
+int i,x1,k;
 int oct[100];
 scanf("%d",&k);
 for(i=0; k>0; i++ ){
