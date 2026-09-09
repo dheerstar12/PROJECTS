@@ -10,7 +10,6 @@ int compare(const void *a, const void *b) {
     if (val_a < val_b) return 1;
     return 0;
 }
-
 int main() {
     long long int t;
     scanf("%lld", &t);
@@ -19,7 +18,6 @@ int main() {
         ll n,k;
         scanf("%lld %lld", &n,&k);
         ll a[n];
-        ll b[n];
         ll king=n;
         
         ll sa[2*k+2];
@@ -29,7 +27,6 @@ int main() {
 
         for(int p=0;p<n;p++){
             scanf("%lld", &a[p]);
-            b[p]=a[p];
             if(p>=(n/2)){
                 sa[(a[p]+a[n-1-p])] += 10000000LL;
             }
@@ -39,16 +36,14 @@ int main() {
     for(int y=0;y<=2*k;y++){
         ll freq = sa[y] / 10000000LL;
         ll target= sa[y] % 10000000LL;
-
         if((n/2)-freq >= king){
             break;
         }
-
         ll ops = 0;
         for(int p=0; p<n/2; p++){
             if(a[p] + a[n-1-p] == target) continue;
-
-        if(a[p]>=a[n-1-p]){min=a[n-1-p]; max=a[p]}
+        ll min,max;
+        if(a[p]>=a[n-1-p]){min=a[n-1-p]; max=a[p];}
         else{min=a[p]; max=a[n-p-1];}
 
             if(target>= min + 1 && target<= max + k){
@@ -63,6 +58,5 @@ int main() {
     }
         printf("%lld\n", king);
     }
-    
     return 0;
 }
